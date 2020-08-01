@@ -10,6 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import { Button } from '@material-ui/core';
 import { db } from './firebase';
+import './index.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {

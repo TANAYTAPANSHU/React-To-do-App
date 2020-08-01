@@ -7,6 +7,7 @@ import TextField from '@material-ui/core/TextField';
 import Todo from './Todo';
 import {db} from './firebase.js' ;
 import firebase, { firestore } from "firebase"
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +20,16 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       width: '25ch',
     },
+
+   
+},
+ text: {
+    '& > *':   {
+    color: '#FFF952'
+    }
+  
   },
+
 }));
 
 
@@ -52,8 +62,8 @@ function App() {
 
   return (
     <div className="App">
-  <h1>React is Super Fast🚀</h1>
-      <h2> Super Awesome🚀</h2>
+  
+      <h1 className={classes.text}>Tanay's To-do App <AccessTimeIcon /> </h1>
   <form className={classes.form} noValidate autoComplete="off">
 
  <TextField id="filled-basic" label="The work you want to do" variant="filled" onChange={e => setinput(e.target.value) } />
