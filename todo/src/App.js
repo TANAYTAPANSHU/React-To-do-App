@@ -64,7 +64,7 @@ function App() {
     <ul>
       {todos.map(function(e)
       {
-      return(<Todo text={e.todo} />) 
+      return(<Todo text={e.todo} id={e.id}/>) 
       })}
     </ul>
     </div>
