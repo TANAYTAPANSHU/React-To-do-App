@@ -1,4 +1,4 @@
-const firebaseConfig = {
+/*const firebaseConfig = {
     apiKey: "AIzaSyDBrhtQyvTZkU-nVGukMbp8787eRPZI6IQ",
     authDomain: "react-todo-app-1778d.firebaseapp.com",
     databaseURL: "https://react-todo-app-1778d.firebaseio.com",
@@ -7,7 +7,7 @@ const firebaseConfig = {
     messagingSenderId: "185700437754",
     appId: "1:185700437754:web:5d2ce17c073040c76f4343",
     measurementId: "G-SXQC93NZ54"
-};
+}; */
 
 import firebase, { firestore } from "firebase"
 
@@ -25,4 +25,4 @@ const firebaseApp = firebase.initializeApp({
 
 const db = firebaseApp.firestore();
 
-export db;
+export { db };

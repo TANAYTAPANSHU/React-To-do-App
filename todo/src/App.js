@@ -1,10 +1,12 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Todo from './Todo';
+import {db} from './firebase.js' ;
+import firebase, { firestore } from "firebase"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,21 +25,29 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
  const classes = useStyles();
-  const [todos, setTodos]  = useState(['Love you react💕', 'React ✨']);
+  const [todos, setTodos]  = useState([]);
   const[input,setinput]= useState('');
   console.log(input)
 
+  useEffect(() => {
+   db.collection('Todos').onSnapshot(snapshot => {
+     console.log(snapshot.docs.map(doc => doc.data()))
+     setTodos(snapshot.docs.map(doc => doc.data().todo))
+   })
+  }, [])
+
   let addTodo = (event) => {
     event.preventDefault();
-         console.log("hello")    
-         if(input==='')
-         {
-           setTodos([...todos]) 
-         }
-         else
-         {
-         setTodos([...todos,input])
-         }
+    if(input==="")
+    {
+
+    }
+    else{
+        db.collection('Todos').add({
+          todo: input,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        })
+      }
   }
 
   return (
